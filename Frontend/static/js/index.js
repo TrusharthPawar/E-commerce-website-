@@ -1,7 +1,7 @@
 //old method to render elements
 // async function getapi() {
 //   try {
-//     const res = await fetch("http://localhost:3000/cloths/womens-cloths");
+//     const res = await fetch("https://shop-cloths.herokuapp.com/cloths/womens-cloths");
 //     var data = await res.json();
 //     for (let i = 0; i <= 4 - 1; i++) {
 //       showdata(data, i);
@@ -30,14 +30,16 @@
 //more eficient method
 async function getapi() {
   try {
-    const res = await fetch("http://localhost:3000/cloths/womens-cloths");
+    const res = await fetch(
+      "https://shop-cloths.herokuapp.com/cloths/womens-cloths"
+    );
     var data = await res.json();
-    const user = await fetch("http://localhost:3000/user");
+    const user = await fetch("https://shop-cloths.herokuapp.com/user");
     var userdata = await user.json();
-    let loader = document.getElementById("loader")
+    let loader = document.getElementById("loader");
     if (res) {
       if (user) {
-        loader.style.display = "none"
+        loader.style.display = "none";
         let user_tab = `<div id="user_info">
         <h3>${userdata}</h3>
         <button id="logout">logout</button>
@@ -48,7 +50,7 @@ async function getapi() {
       }
       let btn = document.getElementById("logout");
       btn.addEventListener("click", async () => {
-        let logout = await fetch("http://localhost:3000/logout");
+        let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
         document.location = "/";
       });
       let content;
@@ -67,9 +69,8 @@ async function getapi() {
         )
         .join("\n")}`;
       document.getElementById("api").innerHTML = content;
-    }
-    else {
-      document.getElementById('api').innerHTML = loader
+    } else {
+      document.getElementById("api").innerHTML = loader;
     }
   } catch (error) {
     console.log("error");

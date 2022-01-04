@@ -1,6 +1,6 @@
 async function cart() {
   try {
-    const user = await fetch("http://localhost:3000/user");
+    const user = await fetch("https://shop-cloths.herokuapp.com/user");
     var userdata = await user.json();
     if (user) {
       let user_tab = `<div id="user_info">
@@ -13,7 +13,7 @@ async function cart() {
     }
     let btn = document.getElementById("logout");
     btn.addEventListener("click", async () => {
-      let logout = await fetch("http://localhost:3000/logout");
+      let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
       document.location = "/";
     });
     await showcart();
@@ -28,7 +28,7 @@ async function showcart() {
   try {
     let loader = document.getElementById("loader");
     let price = 0;
-    let data = await fetch("http://localhost:3000/api/cart");
+    let data = await fetch("https://shop-cloths.herokuapp.com/api/cart");
     let getdata = await data.json();
     if (data) {
       loader.style.display = "none";
@@ -75,7 +75,7 @@ function deletebtn() {
     ele.addEventListener("click", async () => {
       try {
         var delete_data = await fetch(
-          `http://localhost:3000/delete/cart/${Number(id)}`,
+          `https://shop-cloths.herokuapp.com/delete/cart/${Number(id)}`,
           { method: "DELETE", headers: { "Content-Type": "application/json" } }
         );
         delete_data = await delete_data.json();
@@ -90,9 +90,9 @@ function deletebtn() {
 const checkout = document.getElementById("checkout");
 checkout.addEventListener("click", async () => {
   try {
-    let checkout_data = await fetch("http://localhost:3000/api/cart");
+    let checkout_data = await fetch("https://shop-cloths.herokuapp.com/api/cart");
     checkout_data = await checkout_data.json();
-    let check_out = await fetch("http://localhost:3000/checkout", {
+    let check_out = await fetch("https://shop-cloths.herokuapp.com/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

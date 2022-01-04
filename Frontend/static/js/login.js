@@ -4,7 +4,7 @@ async function checkuser() {
   try {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-    let getuser = await fetch("http://localhost:3000/verifyuser", {
+    let getuser = await fetch("https://shop-cloths.herokuapp.com/verifyuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +21,7 @@ async function checkuser() {
       console.log(user);
       window.alert("Login Successfull");
 
-      document.location = "http://localhost:3000/";
+      document.location = "https://shop-cloths.herokuapp.com/";
     }
   } catch (error) {
     console.log("error");

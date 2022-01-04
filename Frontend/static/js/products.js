@@ -3,7 +3,7 @@ import parseurl from "./parseurl.js";
 
 async function products() {
   try {
-    const user = await fetch("http://localhost:3000/user");
+    const user = await fetch("https://shop-cloths.herokuapp.com/user");
     var userdata = await user.json();
     if (user) {
       let user_tab = `<div id="user_info">
@@ -16,11 +16,11 @@ async function products() {
     }
     let btn = document.getElementById("logout");
     btn.addEventListener("click", async () => {
-      let logout = await fetch("http://localhost:3000/logout");
+      let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
       document.location = "/";
     });
     let path = document.location.pathname;
-    let url = `http://localhost:3000/api${path}`;
+    let url = `https://shop-cloths.herokuapp.com/api${path}`;
     let response = await fetch(url, {
       method: "GET",
       headers: {
@@ -62,7 +62,7 @@ function add_to_cart() {
       id: url.id,
     };
     send_to_cart(product_info);
-    alert("Added to Cart")
+    alert("Added to Cart");
   });
 }
 
@@ -72,7 +72,7 @@ async function product() {
 }
 
 function send_to_cart(cart_info) {
-  fetch("http://localhost:3000/add_to_cart", {
+  fetch("https://shop-cloths.herokuapp.com/add_to_cart", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
