@@ -4,36 +4,31 @@
     overflow-x: hidden;
   }
   
-  svg {
+  /* svg {
     width: 25px;
     cursor: pointer;
   }
-  
+   */
   .logo {
     font-weight: bolder;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-size: larger;
     cursor: pointer;
     transform: translateX(40px);
+    /* border-bottom: 1px solid black; */
+  }
+  .nav-top{
+    background-color: hsl(0, 9%, 90%);
+  }
 
-    border-bottom: 1px solid black;
+  .shop{
+    color: black;
   }
- 
-  /* .nav-bottom {
-    display: flex;
-    list-style: none;
-    border-top: 1px rgb(216, 213, 213) solid;
-    border-bottom: 1px rgb(216, 213, 213) solid;
+
+  .icon{
+    transform: translateX(-20px);
   }
-   */
-  /* .nav-bottom li {
-    padding: 10px;
-    font-weight: lighter;
-    cursor: pointer;
-    font-size: medium;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    transform: translateX(40px);
-  } */
+  
   
   .logo {
     padding: 10px;
@@ -45,23 +40,10 @@
   .sidebar {
     transform: translateX(-80px);
     display: flex;
+    flex-direction: row;
   }
   
-  /* section img {
-    width: 120%;
-    transform: translateX(-100px);
-  } */
-  
-  .back-top {
-    /* position: absolute; */
-    /* border: 1px solid red; */
-    /* top: 25%;
-    right: 38%; */
-    transform: translateY(20%);
-    text-align: center;
-    width: fit-content;
-    overflow: visible;
-  }
+ 
   
   
   #first {
@@ -429,18 +411,26 @@ span {
 /* loader */
 
 #loader {
-  position: absolute;
+  /* position: absolute;
   left: 50%;
-  top: 50%;
+  top: 50%; */
   z-index: 1;
   width: 50px;
   height: 50px;
-  margin: -76px 0 0 -76px;
-  border: 10px solid #f3f3f3;
+  /* margin: -76px 0 0 -76px; */
+  border: 5px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 10px solid #565657;
+  border-top: 5px solid #565657;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
+}
+
+#loader_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 @-webkit-keyframes spin {

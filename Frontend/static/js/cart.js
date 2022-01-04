@@ -54,7 +54,7 @@ async function showcart() {
       document.getElementById("price").innerHTML = `₹${price}`;
       deletebtn();
     } else {
-      document.getElementById('api').innerHTML = loader
+      document.getElementById("api").innerHTML = loader;
     }
   } catch (error) {
     console.log(error.message);
@@ -90,7 +90,9 @@ function deletebtn() {
 const checkout = document.getElementById("checkout");
 checkout.addEventListener("click", async () => {
   try {
-    let checkout_data = await fetch("https://shop-cloths.herokuapp.com/api/cart");
+    let checkout_data = await fetch(
+      "https://shop-cloths.herokuapp.com/api/cart"
+    );
     checkout_data = await checkout_data.json();
     let check_out = await fetch("https://shop-cloths.herokuapp.com/checkout", {
       method: "POST",

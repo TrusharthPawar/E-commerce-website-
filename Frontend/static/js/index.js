@@ -36,7 +36,7 @@ async function getapi() {
     var data = await res.json();
     const user = await fetch("https://shop-cloths.herokuapp.com/user");
     var userdata = await user.json();
-    let loader = document.getElementById("loader");
+    let loader = document.getElementById("loader_container");
     if (res) {
       if (user) {
         loader.style.display = "none";
@@ -73,7 +73,7 @@ async function getapi() {
       document.getElementById("api").innerHTML = loader;
     }
   } catch (error) {
-    console.log("error");
+    console.log(error.message);
   }
 }
 

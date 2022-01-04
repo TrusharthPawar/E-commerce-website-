@@ -93,6 +93,7 @@ app.get("/login", (req, res) => {
 });
 
 app.post("/verifyuser", (req, res) => {
+  console.log({ username: req.body.username, password: req.body.password });
   create_user.findOne(
     { username: req.body.username, password: req.body.password },
     (err, user) => {
@@ -103,7 +104,11 @@ app.post("/verifyuser", (req, res) => {
         console.log("Login Successfully");
       } else {
         console.log("Invalid Username or Password");
-        res.sendStatus(403);
+        console.log({
+          username: req.body.username,
+          password: req.body.password,
+        });
+        res.sendStatus(404);
       }
     }
   );
@@ -185,7 +190,7 @@ app.post("/checkout", async (req, res) => {
           currency: "INR",
           product_data: {
             name: product.title,
-            images:[product.img]
+            images: [product.img],
           },
           unit_amount: product.price * 100,
         },

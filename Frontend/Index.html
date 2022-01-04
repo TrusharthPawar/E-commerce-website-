@@ -12,11 +12,13 @@
   <body id="body">
     <nav>
       <div>
-        <div clas="nav-top">
+        <div class="nav-top">
           <div class="logo">
-            <a href="/"><div>Shop</div></a>
+            <a href="/"><div class="shop">Shop</div></a>
             <div class="sidebar" id="sidebar">
-              <a href='/cart'><i class="gg-shopping-cart"></i></a>
+              <!-- <div id="icon"> -->
+                <a href='/cart'><i class="gg-shopping-cart" ></i></a>
+              <!-- </div> -->
               <div id="account">
                 <i class="fa fa-user-circle-o" style="font-size:24px" id="user"></i>
               </div>
@@ -30,7 +32,9 @@
         <div id="api" class="products-list"></div>
       </div>
     </main>
-    <div id="loader"></div>
+    <div id="loader_container">
+      <div id="loader"></div>
+    </div>
   </body>
   <script type="module" src="/static/js/index.js" defer>
   </script>
