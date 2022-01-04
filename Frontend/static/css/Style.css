@@ -1,0 +1,467 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  svg {
+    width: 25px;
+    cursor: pointer;
+  }
+  
+  .logo {
+    font-weight: bolder;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: larger;
+    cursor: pointer;
+    transform: translateX(40px);
+
+    border-bottom: 1px solid black;
+  }
+ 
+  /* .nav-bottom {
+    display: flex;
+    list-style: none;
+    border-top: 1px rgb(216, 213, 213) solid;
+    border-bottom: 1px rgb(216, 213, 213) solid;
+  }
+   */
+  /* .nav-bottom li {
+    padding: 10px;
+    font-weight: lighter;
+    cursor: pointer;
+    font-size: medium;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    transform: translateX(40px);
+  } */
+  
+  .logo {
+    padding: 10px;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+  }
+  
+  .sidebar {
+    transform: translateX(-80px);
+    display: flex;
+  }
+  
+  /* section img {
+    width: 120%;
+    transform: translateX(-100px);
+  } */
+  
+  .back-top {
+    /* position: absolute; */
+    /* border: 1px solid red; */
+    /* top: 25%;
+    right: 38%; */
+    transform: translateY(20%);
+    text-align: center;
+    width: fit-content;
+    overflow: visible;
+  }
+  
+  
+  #first {
+    color: rgb(135, 136, 138);
+    font-size: small;
+  }
+  
+  #second {
+    font-size: 1.5rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-weight: normal;
+  }
+  
+  #third {
+    font-size: 1rem;
+    padding-bottom: 20px;
+  }
+  
+  .btn {
+    background-color: black;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    cursor: pointer;
+    font-weight: lighter;
+  }
+  
+  .btn:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+  
+  .categories img {
+    width: 400px;
+    padding: 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+
+  .categories{
+      overflow: hidden;
+  }
+  
+  
+
+ 
+  #img1,
+  #img2,
+  #img3 {
+    position: relative;
+    display: flex;
+  }
+  #label1,
+  #label2,
+  #label3 {
+    position: absolute;
+    top: 75%;
+    left: 5%;
+    right: 30%;
+    opacity: 0.89;
+    background-color: white;
+    padding: 5px 80px 5px 80px;
+    cursor: pointer;
+    text-align: center;
+    list-style: none;
+  }
+  
+  #label1:hover {
+    background-color: black;
+    color: white;
+  }
+  #label2:hover {
+    background-color: black;
+    color: white;
+  }
+  #label3:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  #img1,#img2,#img3{
+   transition: 0.2s all ease-in;
+   overflow: hidden;
+  }
+  
+  #img1:hover{
+      transform: scale(1.04,1.04);
+  }
+  #img2:hover{
+      transform: scale(1.04,1.04);
+  }
+  #img3:hover{
+      transform: scale(1.04,1.04);
+  }
+  
+  .product img{
+      width: 100%;
+      height: 300px;
+  }
+  .product{
+      /* width: 200px; */
+      padding: 30px;
+      cursor: pointer;
+  }
+  
+  .products-list{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      /* grid-template-columns: auto auto auto auto; */
+      /* padding-left:70px; */
+      /* padding-right: 30px; */
+  }
+
+  .info .cart{
+      border:1px solid black;
+      padding:8px 20px 8px 20px;
+      cursor: pointer;
+  }
+ 
+  
+  .info .price{
+     margin-bottom: 20px;
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+  }
+  
+  
+  .info .label{
+      color: rgb(0, 0, 0);
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .info .type{
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+.style{
+  color:red
+}
+
+
+.cart-content{
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.main-info{
+  display: flex;
+  justify-content: center;
+}
+
+#info{
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+#info img {
+  width: 200px;
+  height: 200px;
+}
+
+#container h1{
+
+  padding: 5px;
+}
+
+
+#info .cart-price{
+  padding: 10px;
+  margin-top: 20px;
+}
+
+#container nav{
+  display: flex;
+}
+
+#container h3{
+  padding: 30px;
+}
+
+.cart-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3rem;
+}
+
+.check-out h2{
+  text-align: center;
+  
+}
+
+
+.total{
+  display: flex;
+  justify-content: space-between;
+}
+.total h3{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.check-out-btn{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: none;
+  background-color: black;
+}
+.check-out-btn a{
+ 
+  background-color: black;
+  color: white;
+  padding:10px 40px 10px 40px;
+  cursor: pointer;
+}
+.check-out-btn:hover{
+  background-color: white;
+  color: black;
+}
+
+
+#button{
+  display: flex;
+  justify-content: center;
+}
+
+.check-out{
+  border-left: 1px solid black;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.check-out-btn a:hover{
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+
+span {
+  display: flex;
+}
+
+.info .remove{
+  background-color: black;
+  padding: 0.5rem;
+  color: white;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.info a:hover{
+  background-color: white;
+  color:black;
+  border: 1px solid black;
+}
+
+.info .cart:hover{
+  background-color: black;
+  color: white;
+}
+
+#logout{
+  color: black;
+}
+
+
+
+/* login page */
+
+#login_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: hsl(0, 7%, 86%)
+}
+
+
+#user_login{
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  padding: 10rem 3rem 10rem 3rem;
+  background-color: white;
+  border-radius: 5px;
+}
+
+#username,#password,#name{
+  width: 12rem;
+  padding: 0.6rem;
+  margin: 0.5rem;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none ;
+  border-bottom: 1px rgb(83, 81, 81) solid;
+}
+#login{
+  align-self: center;
+  width: 12rem;
+  padding: 0.6rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  margin-top:1rem;
+  background: rgb(131,58,180);
+  font-size: larger;
+  background: black;
+  color: white;
+  border: none;
+}
+
+#user_login h2,a{
+  text-align: center;
+  margin: 0.5rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#login:hover{
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+
+/* Siderbar */
+#siderbar {
+ display: flex;
+}
+
+#user_info{
+  display: none;
+}
+
+#account:hover #user_info{
+  display: block;
+}
+
+/* Logout */
+#logout{
+  border: none;
+  background:black;
+  padding: 3px 10px 3px 10px;
+  color: white;
+  cursor:pointer;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#logout:hover{
+  background-color: white;
+  color:black;
+  border: 1px solid black;
+}
+
+/* loader */
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 50px;
+  height: 50px;
+  margin: -76px 0 0 -76px;
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #565657;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* cart */
+
+#cart_heading{
+  padding-left: 2rem;
+}
+
+@media only screen and (max-width:600px){
+  .cart-container{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

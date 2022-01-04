@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/static/css/Style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link href='https://css.gg/shopping-cart.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+  </head>
+  <body id="body">
+    <nav>
+      <div>
+        <div clas="nav-top">
+          <div class="logo">
+            <a href="/"><div>Shop</div></a>
+            <div class="sidebar" id="sidebar">
+              <a href="/cart"><i class="gg-shopping-cart"></i></a>
+              <div id="account">
+                <i class="fa fa-user-circle-o" style="font-size:24px" id="user"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <h1 id="cart_heading">Shopping Cart</h1>
+    <main id="main-container">
+      <div class="cart-container">
+        <div id="container"></div>
+        <div id="loader"></div>
+        <div class="check-out">
+          <h2>Cart Total</h2>
+          <div class="total">
+            <h3>Total</h3>
+            <h3 id="price">₹</h3>
+          </div>
+          <div id="button">
+            <button class="check-out-btn" role="btn" id="checkout">
+              <a>Proceed to Checkout</a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script type="module" src="/static/js/cart.js" defer></script>
+</html>
