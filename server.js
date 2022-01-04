@@ -185,6 +185,7 @@ app.post("/checkout", async (req, res) => {
           currency: "INR",
           product_data: {
             name: product.title,
+            images:[product.img]
           },
           unit_amount: product.price * 100,
         },
