@@ -38,7 +38,7 @@ async function getapi() {
     var userdata = await user.json();
     let loader = document.getElementById("loader_container");
     if (res) {
-      if (user) {
+      if (userdata) {
         loader.style.display = "none";
         let user_tab = `<div id="user_info">
         <h3>${userdata}</h3>
@@ -47,12 +47,19 @@ async function getapi() {
         document
           .getElementById("account")
           .insertAdjacentHTML("beforeend", user_tab);
+        let btn = document.getElementById("logout");
+        btn.addEventListener("click", async () => {
+          let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
+          logout = await logout.json();
+          console.log(logout);
+          document.location = "/";
+        });
+      } else if (!userdata) {
+        loader.style.display = "none";
+        document.getElementById(
+          "account"
+        ).innerHTML = `<a href="/login" class="login">Login</a>`;
       }
-      let btn = document.getElementById("logout");
-      btn.addEventListener("click", async () => {
-        let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
-        document.location = "/";
-      });
       let content;
       content = `${data
         .map(
@@ -70,6 +77,7 @@ async function getapi() {
         .join("\n")}`;
       document.getElementById("api").innerHTML = content;
     } else {
+      console.log("no data");
       document.getElementById("api").innerHTML = loader;
     }
   } catch (error) {

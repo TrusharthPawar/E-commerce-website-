@@ -5,7 +5,7 @@ async function products() {
   try {
     const user = await fetch("https://shop-cloths.herokuapp.com/user");
     var userdata = await user.json();
-    if (user) {
+    if (userdata) {
       let user_tab = `<div id="user_info">
       <h3>${userdata}</h3>
       <button id="logout">logout</button>
@@ -13,12 +13,19 @@ async function products() {
       document
         .getElementById("account")
         .insertAdjacentHTML("beforeend", user_tab);
+      let btn = document.getElementById("logout");
+      btn.addEventListener("click", async () => {
+        let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
+        logout = await logout.json();
+        document.location = "/";
+      });
+    } else if (!userdata) {
+      // document.getElementById('account').style.display = "none"
+      document.getElementById(
+        "account"
+      ).innerHTML = `<a href="/login" class="login">Login</a>`;
     }
-    let btn = document.getElementById("logout");
-    btn.addEventListener("click", async () => {
-      let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
-      document.location = "/";
-    });
+
     let path = document.location.pathname;
     let url = `https://shop-cloths.herokuapp.com/api${path}`;
     let response = await fetch(url, {

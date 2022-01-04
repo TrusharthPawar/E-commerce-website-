@@ -10,12 +10,18 @@ async function cart() {
       document
         .getElementById("account")
         .insertAdjacentHTML("beforeend", user_tab);
+      let btn = document.getElementById("logout");
+      btn.addEventListener("click", async () => {
+        let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
+        document.location = "/";
+      });
+    } else if (!userdata) {
+      document.getElementById("account").style.display = "none";
+      document.getElementById(
+        "account"
+      ).innerHTML = `<a href="/login" class="login">Login</a>`;
     }
-    let btn = document.getElementById("logout");
-    btn.addEventListener("click", async () => {
-      let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
-      document.location = "/";
-    });
+
     await showcart();
   } catch (error) {
     console.log(error.message);

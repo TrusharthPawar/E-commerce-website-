@@ -7,6 +7,7 @@ const bodyparser = require("body-parser");
 const products = require("./Backend/models/products");
 const Cart = require("./Backend/models/Cart");
 const womens_cloths = require("./Backend/models/womens-cloths");
+const mens_cloths = require("./Backend/models/mens_cloths");
 const { response } = require("express");
 const create_user = require("./Backend/models/createuser");
 const { getHashes, createHash } = require("crypto");
@@ -42,7 +43,7 @@ var options = {
   root: path.resolve(__dirname, "Frontend"),
 };
 
-app.get("/", auth, (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile("Index.html", options, (err) => {
     if (err) res.sendStatus(500);
     else {
@@ -53,8 +54,12 @@ app.get("/", auth, (req, res) => {
 
 app.get("/user", (req, res) => {
   let token = req.cookies.jwt;
-  let user = jwt.verify(token, "wildshoter@123");
-  res.json(user);
+  if (token) {
+    let user = jwt.verify(token, "wildshoter@123");
+    res.json(user);
+  } else {
+    res.json(null);
+  }
 });
 
 app.get("/logout", (req, res) => {
@@ -90,6 +95,15 @@ app.get("/login", (req, res) => {
   res.sendFile("login.html", options, (err) =>
     err ? res.sendStatus(500) : res.status(200)
   );
+});
+app.post("/mens-cloths", (req, res) => {
+  let mens = new mens_cloths({
+    id: 1,
+    title: String,
+    brand: String,
+    price: Number,
+    img: String,
+  });
 });
 
 app.post("/verifyuser", (req, res) => {
