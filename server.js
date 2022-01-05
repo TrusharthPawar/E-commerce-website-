@@ -96,15 +96,7 @@ app.get("/login", (req, res) => {
     err ? res.sendStatus(500) : res.status(200)
   );
 });
-app.post("/mens-cloths", (req, res) => {
-  let mens = new mens_cloths({
-    id: 1,
-    title: String,
-    brand: String,
-    price: Number,
-    img: String,
-  });
-});
+
 
 app.post("/verifyuser", (req, res) => {
   console.log({ username: req.body.username, password: req.body.password });
@@ -217,8 +209,8 @@ app.post("/checkout", async (req, res) => {
       payment_method_types: ["card"],
       mode: "payment",
       line_items: [...product_data],
-      success_url: "https://shop-cloths.herokuapp.com/pages/success.html",
-      cancel_url: "https://shop-cloths.herokuapp.com/pages/cancel.html",
+      success_url: "https://localhost:300/pages/success.html",
+      cancel_url: "https://localhost:300/pages/cancel.html",
     });
     res.json({ session: session.url });
   } catch (error) {
@@ -226,36 +218,37 @@ app.post("/checkout", async (req, res) => {
   }
 });
 
-// app.post(
-//   "/webhook",
-//   express.raw({ type: "application/json" }),
-//   (request, response) => {
-//     const sig = request.headers["stripe-signature"];
+app.post(
+  "/webhook",
+  express.raw({ type: "application/json" }),
+  (request, response) => {
+    const sig = request.headers["stripe-signature"];
 
-//     let event;
+    let event;
 
-//     try {
-//       event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
-//     } catch (err) {
-//       response.status(400).send(`Webhook Error: ${err.message}`);
-//       return;
-//     }
+    try {
+      event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+    } catch (err) {
+      response.status(400).send(`Webhook Error: ${err.message}`);
+      return;
+    }
 
-//     // Handle the event
-//     switch (event.type) {
-//       case "payment_intent.succeeded":
-//         const paymentIntent = event.data.object;
-//         // Then define and call a function to handle the event payment_intent.succeeded
-//         break;
-//       // ... handle other event types
-//       default:
-//         console.log(`Unhandled event type ${event.type}`);
-//     }
+    // Handle the event
+    switch (event.type) {
+      case "payment_intent.succeeded":
+        const paymentIntent = event.data.object;
+        console.log(paymentIntent)
+        // Then define and call a function to handle the event payment_intent.succeeded
+        break;
+      // ... handle other event types
+      default:
+        console.log(`Unhandled event type ${event.type}`);
+    }
 
-//     // Return a 200 response to acknowledge receipt of the event
-//     response.send();
-//   }
-// );
+    // Return a 200 response to acknowledge receipt of the event
+    response.send();
+  }
+);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
