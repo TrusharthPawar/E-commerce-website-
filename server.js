@@ -18,7 +18,7 @@ const cors = require("cors");
 const stripe = require("stripe")(
   "sk_test_51KDLqpSGNZUVUgDHasKuZj75JTukQphjuOgsGnF49Qi1EMkkXEuKct8PmI85PZAB87Qhc5r7RvCByuBhy2CzbYvJ000DQaEMLP"
 );
-const endpointSecret = "whsec_JGUtJo8EHbVxvx5J9lQWRHyN19Dsj6B4";
+const endpointSecret = "whsec_BW0VHk2WjF59P8XlhXzOhLuZktgSO7Cg";
 app.use(cors());
 app.use(express.json());
 app.use(bodyparser.urlencoded({ extended: true }));
