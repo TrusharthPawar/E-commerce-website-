@@ -209,8 +209,8 @@ app.post("/checkout", async (req, res) => {
       payment_method_types: ["card"],
       mode: "payment",
       line_items: [...product_data],
-      success_url: "https://localhost:300/pages/success.html",
-      cancel_url: "https://localhost:300/pages/cancel.html",
+      success_url: "https://shop-cloths.herokuapp.com/pages/success.html",
+      cancel_url: "https://shop-cloths.herokuapp.com/pages/cancel.html",
     });
     res.json({ session: session.url });
   } catch (error) {
@@ -251,5 +251,5 @@ app.post(
 );
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example app listening at https://shop-cloths.herokuapp.com:${port}`);
 });
