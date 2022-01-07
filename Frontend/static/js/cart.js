@@ -1,10 +1,12 @@
+import HOST from "./host.js";
 async function cart() {
   try {
-    const user = await fetch("https://shop-cloths.herokuapp.com/user");
+    const user = await fetch(`${HOST}user`);
     var userdata = await user.json();
     if (user) {
       let user_tab = `<div id="user_info">
       <h3>${userdata}</h3>
+      <a href="/orders">Orders</a><br>
       <button id="logout">logout</button>
       </div>`;
       document
@@ -12,7 +14,7 @@ async function cart() {
         .insertAdjacentHTML("beforeend", user_tab);
       let btn = document.getElementById("logout");
       btn.addEventListener("click", async () => {
-        let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
+        let logout = await fetch(`${HOST}logout`);
         document.location = "/";
       });
     } else if (!userdata) {
@@ -32,9 +34,9 @@ cart();
 
 async function showcart() {
   try {
-    let loader = document.getElementById("loader");
+    var loader = document.getElementById("loader");
     let price = 0;
-    let data = await fetch("https://shop-cloths.herokuapp.com/api/cart");
+    let data = await fetch(`${HOST}api/cart`);
     let getdata = await data.json();
     if (data) {
       loader.style.display = "none";
@@ -80,10 +82,10 @@ function deletebtn() {
     var ele = document.getElementById(id);
     ele.addEventListener("click", async () => {
       try {
-        var delete_data = await fetch(
-          `https://shop-cloths.herokuapp.com/delete/cart/${Number(id)}`,
-          { method: "DELETE", headers: { "Content-Type": "application/json" } }
-        );
+        var delete_data = await fetch(`${HOST}delete/cart/${Number(id)}`, {
+          method: "DELETE",
+          headers: { "Content-Type": "application/json" },
+        });
         delete_data = await delete_data.json();
         await showcart();
       } catch (error) {
@@ -96,19 +98,20 @@ function deletebtn() {
 const checkout = document.getElementById("checkout");
 checkout.addEventListener("click", async () => {
   try {
-    let checkout_data = await fetch(
-      "https://shop-cloths.herokuapp.com/api/cart"
-    );
-    checkout_data = await checkout_data.json();
-    let check_out = await fetch("https://shop-cloths.herokuapp.com/checkout", {
+    // window.location = payout.session;
+    const user = await fetch(`${HOST}user`);
+    var userdata = await user.json();
+    let cart = await fetch(`${HOST}api/cart`);
+    cart = await cart.json();
+    let order = await fetch(`${HOST}order`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type":"application/json"
       },
-      body: JSON.stringify({ cart: [...checkout_data] }),
-    });
-    let checkout = await check_out.json();
-    window.location = checkout.session;
+      body:JSON.stringify({orderitem:cart,user:userdata})
+    })
+    let order_id = await order.json()
+    window.location = `${HOST}orders/${order_id}`
   } catch (error) {
     console.log(error.message);
   }

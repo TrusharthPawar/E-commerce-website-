@@ -1,3 +1,4 @@
+import HOST from "./host.js";
 let btn = document.getElementById("login");
 
 async function checkuser() {
@@ -8,7 +9,7 @@ async function checkuser() {
       username: username,
       password: password,
     };
-    let getuser = await fetch("https://shop-cloths.herokuapp.com/verifyuser", {
+    let getuser = await fetch(`${HOST}verifyuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +21,7 @@ async function checkuser() {
       window.alert("Invalid username or password");
     } else {
       window.alert("Login Successfull");
-      document.location = "https://shop-cloths.herokuapp.com/";
+      document.location = `${HOST}`;
     }
   } catch (error) {
     console.log(error.message);

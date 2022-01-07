@@ -12,7 +12,7 @@
   <body id="body">
     <nav>
       <div>
-        <div class="nav-top" id="nav-top">
+        <div class="nav-top">
           <div class="logo">
             <a href="/"><div class="shop">Shop</div></a>
             <div class="sidebar" id="sidebar">
@@ -29,11 +29,14 @@
     </nav>
     <main id="main-container">
       <div id="container" >
-        <div id="api" class="products-list"></div>
-        <h1>Cancel</h1>
+        <h1>Orders</h1>
+        <div id="order"></div>
       </div>
     </main>
+    <div id="loader_container">
+      <div id="loader"></div>
+    </div>
   </body>
-  <script type="module" src="/static/js/cancel.js">
+  <script type="module" src="/static/js/orders.js" defer>
   </script>
 </html>

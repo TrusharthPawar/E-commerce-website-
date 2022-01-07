@@ -1,7 +1,7 @@
 //old method to render elements
 // async function getapi() {
 //   try {
-//     const res = await fetch("https://shop-cloths.herokuapp.com/cloths/womens-cloths");
+//     const res = await fetch("${HOST}/cloths/womens-cloths");
 //     var data = await res.json();
 //     for (let i = 0; i <= 4 - 1; i++) {
 //       showdata(data, i);
@@ -28,20 +28,21 @@
 // }
 
 //more eficient method
+import HOST from "./host.js";
 async function getapi() {
   try {
-    const res = await fetch(
-      "https://shop-cloths.herokuapp.com/cloths/womens-cloths"
-    );
+    const res = await fetch(`${HOST}cloths/mens-cloths`);
     var data = await res.json();
-    const user = await fetch("https://shop-cloths.herokuapp.com/user");
+    const user = await fetch(`${HOST}user`);
     var userdata = await user.json();
+    console.log(user)
     let loader = document.getElementById("loader_container");
     if (res) {
       if (userdata) {
         loader.style.display = "none";
         let user_tab = `<div id="user_info">
         <h3>${userdata}</h3>
+        <a href="/orders">Orders</a>
         <button id="logout">logout</button>
         </div>`;
         document
@@ -49,7 +50,7 @@ async function getapi() {
           .insertAdjacentHTML("beforeend", user_tab);
         let btn = document.getElementById("logout");
         btn.addEventListener("click", async () => {
-          let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
+          let logout = await fetch(`${HOST}logout`);
           logout = await logout.json();
           console.log(logout);
           document.location = "/";

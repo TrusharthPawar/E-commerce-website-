@@ -1,13 +1,14 @@
 import getproducts from "./getproducts.js";
 import parseurl from "./parseurl.js";
-
+import HOST from "./host.js";
 async function products() {
   try {
-    const user = await fetch("https://shop-cloths.herokuapp.com/user");
+    const user = await fetch(`${HOST}user`);
     var userdata = await user.json();
     if (userdata) {
       let user_tab = `<div id="user_info">
       <h3>${userdata}</h3>
+      <a href="/orders">Orders</a>
       <button id="logout">logout</button>
       </div>`;
       document
@@ -15,7 +16,7 @@ async function products() {
         .insertAdjacentHTML("beforeend", user_tab);
       let btn = document.getElementById("logout");
       btn.addEventListener("click", async () => {
-        let logout = await fetch("https://shop-cloths.herokuapp.com/logout");
+        let logout = await fetch(`${HOST}logout`);
         logout = await logout.json();
         document.location = "/";
       });
@@ -27,7 +28,7 @@ async function products() {
     }
 
     let path = document.location.pathname;
-    let url = `https://shop-cloths.herokuapp.com/api${path}`;
+    let url = `${HOST}api${path}`;
     let response = await fetch(url, {
       method: "GET",
       headers: {
@@ -79,7 +80,7 @@ async function product() {
 }
 
 function send_to_cart(cart_info) {
-  fetch("https://shop-cloths.herokuapp.com/add_to_cart", {
+  fetch(`${HOST}add_to_cart`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

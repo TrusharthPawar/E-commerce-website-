@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success</title>
-</head>
-<body>
-    <h1>Success</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/static/css/Style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://css.gg/shopping-cart.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Shop</title>
+  </head>
+  <body id="body">
+    <nav>
+      <div>
+        <div class="nav-top" id="nav-top">
+          <div class="logo">
+            <a href="/"><div class="shop">Shop</div></a>
+            <div class="sidebar" id="sidebar">
+              <!-- <div id="icon"> -->
+                <a href='/cart'><i class="gg-shopping-cart" ></i></a>
+              <!-- </div> -->
+              <div id="account">
+                <i class="fa fa-user-circle-o" style="font-size:24px" id="user"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main id="main-container">
+      <div id="container" >
+        <div id="api" class="products-list"></div>
+        <h1>Success</h1>
+      </div>
+    </main>
+  </body>
+  <script type="module" src="/static/js/success.js" >
+  </script>
 </html>

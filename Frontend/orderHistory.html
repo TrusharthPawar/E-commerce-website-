@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href='https://css.gg/shopping-cart.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Shop</title>
+    <title>orderHistory</title>
   </head>
   <body id="body">
     <nav>
       <div>
-        <div class="nav-top" id="nav-top">
+        <div class="nav-top">
           <div class="logo">
             <a href="/"><div class="shop">Shop</div></a>
             <div class="sidebar" id="sidebar">
@@ -29,11 +29,14 @@
     </nav>
     <main id="main-container">
       <div id="container" >
-        <div id="api" class="products-list"></div>
-        <h1>Cancel</h1>
+        <h1>Orders</h1>
+        <div id="order"></div>
       </div>
     </main>
+    <div id="loader_container">
+      <div id="loader"></div>
+    </div>
   </body>
-  <script type="module" src="/static/js/cancel.js">
+  <script type="module" src="/static/js/orderHistory.js" defer>
   </script>
 </html>
